@@ -25,10 +25,51 @@ struct MapView: View {
     var body: some View {
         Map(position: $cameraPosition) {
             ForEach(locations, id: \.id) { item in
-                Marker(item.name, coordinate: item.location)
-                    .tint(.accent)
+                Marker(item.name, systemImage: "mappin.and.ellipse", coordinate: item.location)
             }
-        }
+        } //: MAP
+//        .overlay(
+//            HStack {
+//                Image("compass")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 48, height: 48, alignment: .center)
+//                
+//                VStack(alignment: .leading, spacing: 3) {
+//                    HStack {
+//                        Text("Latitude")
+//                            .font(.footnote)
+//                            .fontWeight(.bold)
+//                            .foregroundStyle(.accent)
+//                        Spacer()
+//                        Text("\(cameraPosition.region?.center.latitude)")
+//                            .font(.footnote)
+//                            .foregroundStyle(.white)
+//                    }
+//                    Divider()
+//                    
+//                    HStack {
+//                        Text("Longitude")
+//                            .font(.footnote)
+//                            .fontWeight(.bold)
+//                            .foregroundStyle(.accent)
+//                        Spacer()
+//                        Text("\(cameraPosition.)")
+//                            .font(.footnote)
+//                            .foregroundStyle(.white)
+//                    }
+//                }
+//            } //: HSTACK
+//                .padding(.vertical, 12)
+//                .padding(.horizontal, 16)
+//                .background(
+//                    Color.black
+//                        .clipShape(RoundedRectangle(cornerRadius: 8))
+//                        .opacity(0.6)
+//                )
+//                .padding()
+//            , alignment: .top
+//        )
     }
 }
 
